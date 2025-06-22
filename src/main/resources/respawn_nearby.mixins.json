@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.aresiel.respawn_nearby.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ScreenInvokerAccessor",
+    "DeathScreenAccessor",
+    "MoveTitleScreenButtonMixin",
+    "RedirectRespawnMixin"
+  ],
+  "client": [
+  ],
+  "server": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "respawn_nearby.configuration.title": "Respawn Nearby Configs",
+  "respawn_nearby.configuration.section.respawn_nearby.common.toml": "Respawn Nearby Configs",
+  "respawn_nearby.configuration.section.respawn_nearby.common.toml.title": "Respawn Nearby Configs",
+
+  "respawn_nearby.respawn_button": "Respawn Nearby",
+  "respawn_nearby.respawn_button.tooltip": "Toggle respawning nearby your last death location.\nCurrently: ",
+  "respawn_nearby.respawn_button.toggle.enabled": "Enabled",
+  "respawn_nearby.respawn_button.toggle.disabled": "Disabled"
+}
