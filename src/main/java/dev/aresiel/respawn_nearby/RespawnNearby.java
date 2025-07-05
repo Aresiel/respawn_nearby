@@ -4,6 +4,9 @@ import dev.aresiel.respawn_nearby.config.ClientConfig;
 import dev.aresiel.respawn_nearby.config.ServerConfig;
 import dev.aresiel.respawn_nearby.networking.UpdateStoredPreferencePayload;
 import dev.aresiel.respawn_nearby.networking.UpdateStoredPreferencePayloadHandler;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
+import net.neoforged.neoforge.event.server.ServerStartingEvent;
 import net.neoforged.neoforge.network.event.RegisterPayloadHandlersEvent;
 import net.neoforged.neoforge.network.registration.PayloadRegistrar;
 import org.slf4j.Logger;
@@ -16,6 +19,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 
 @Mod(RespawnNearby.MODID)
+@EventBusSubscriber(modid = RespawnNearby.MODID)
 public class RespawnNearby {
     public static final String MODID = "respawn_nearby";
 
@@ -36,4 +40,13 @@ public class RespawnNearby {
                 new UpdateStoredPreferencePayloadHandler()
         );
     }
+
+    @SubscribeEvent
+    public static void onCommonSetup(ServerStartingEvent event) {
+        if(ServerConfig.USE_ROTATING_ARRAY_LIST.isTrue()) {
+            LOGGER.warn("RotatingArrayList is enabled, this is not supported and may cause crashes. Do not submit crash reports with it enabled.");
+        }
+    }
+
+
 }

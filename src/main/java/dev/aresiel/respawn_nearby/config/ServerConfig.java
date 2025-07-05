@@ -19,7 +19,7 @@ public class ServerConfig {
             .defineInRange("entity_search_radius", 20, 1, Integer.MAX_VALUE);
 
     public static final ModConfigSpec.BooleanValue USE_ROTATING_ARRAY_LIST = BUILDER
-            .comment("Use RotatingArrayList for storing respawn locations. This might improve performance for very large numbers of locations and players. It however has not been tested for stability, nor has any performance profiling been done.")
+            .comment("Use RotatingArrayList for storing respawn locations. This might improve performance for very large numbers of locations and players. It however has not been tested for stability, nor has any performance profiling been done, for these reasons, usage is not supported, do not submit crash reports with it enabled.")
             .define("use_rotating_array_list", false);
 
     public static final ModConfigSpec SPEC = BUILDER.build();
