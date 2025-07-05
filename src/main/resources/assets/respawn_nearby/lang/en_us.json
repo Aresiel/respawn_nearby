@@ -6,5 +6,11 @@
   "respawn_nearby.respawn_button": "Respawn Nearby",
   "respawn_nearby.respawn_button.tooltip": "Toggle respawning nearby your last death location.\nCurrently: ",
   "respawn_nearby.respawn_button.toggle.enabled": "Enabled",
-  "respawn_nearby.respawn_button.toggle.disabled": "Disabled"
+  "respawn_nearby.respawn_button.toggle.disabled": "Disabled",
+
+  "respawn_nearby.configuration.stored_locations_amount": "Number of stored locations",
+  "respawn_nearby.configuration.entity_search_radius": "Entity search radius",
+  "respawn_nearby.configuration.update_cooldown_ticks": "Update cooldown (ticks)",
+  "respawn_nearby.configuration.use_rotating_array_list": "Use rotating array list",
+  "respawn_nearby.configuration.enable_respawn_nearby": "Enable Respawn Nearby"
 }
