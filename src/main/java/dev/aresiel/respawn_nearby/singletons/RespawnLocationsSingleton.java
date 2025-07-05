@@ -19,7 +19,7 @@ import java.util.*;
 @EventBusSubscriber(modid = RespawnNearby.MODID)
 public class RespawnLocationsSingleton {
 
-    private static Map<UUID, List<Location>> respawnLocations = new HashMap<>();
+    private static final Map<UUID, List<Location>> respawnLocations = new HashMap<>();
     private static final Map<UUID, Integer> updateCooldowns = new HashMap<>();
 
 
@@ -36,7 +36,7 @@ public class RespawnLocationsSingleton {
         if(updateCooldowns.get(player.getUUID()) <= 0 && player.onGround() && player.isAlive()) {
             updateCooldowns.put(player.getUUID(), ServerConfig.UPDATE_COOLDOWN_TICKS.get());
 
-            respawnLocations.putIfAbsent(player.getUUID(), new ArrayList<>());
+            respawnLocations.putIfAbsent(player.getUUID(), ListFactorySingleton.createList());
             var respawnLocation = respawnLocations.get(player.getUUID());
 
             if(respawnLocation.size() >= ServerConfig.NUMBER_OF_RESPAWN_LOCATIONS_TO_STORE.get()) {
@@ -81,7 +81,7 @@ public class RespawnLocationsSingleton {
      * Get the respawn locations for a player, ordered oldest->newest.
      */
     public static List<Location> getRespawnLocations(Player player) {
-        var locations = respawnLocations.getOrDefault(player.getUUID(), new ArrayList<>());
+        var locations = respawnLocations.getOrDefault(player.getUUID(), ListFactorySingleton.createList());
         /*locations.addFirst(new Location( // Do we want this?
                 player.level().dimension(),
                 BlockPos.containing(player.getPosition(0))

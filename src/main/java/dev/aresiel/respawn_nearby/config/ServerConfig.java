@@ -18,5 +18,9 @@ public class ServerConfig {
             .comment("The algorithm picks the location with the fewest nearby entities, this determines the search radius to look for entities in.")
             .defineInRange("entity_search_radius", 20, 1, Integer.MAX_VALUE);
 
+    public static final ModConfigSpec.BooleanValue USE_ROTATING_ARRAY_LIST = BUILDER
+            .comment("Use RotatingArrayList for storing respawn locations. This might improve performance for very large numbers of locations and players. It however has not been tested for stability, nor has any performance profiling been done.")
+            .define("use_rotating_array_list", false);
+
     public static final ModConfigSpec SPEC = BUILDER.build();
 }
